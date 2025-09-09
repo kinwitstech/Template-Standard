@@ -1,0 +1,40 @@
+const ServicesSection = ({ services }) => {
+  return (
+    <section className="section-padding">
+      <div className="container mx-auto">
+        <div className="text-center mb-12">
+          <span className="block text-primary uppercase tracking-wide text-sm mb-2">
+            Services
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Catering Services
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-start text-center fade-in"
+              >
+                <div className="flex justify-center items-center w-20 h-20 rounded-full bg-primary/10 text-primary mb-4">
+                  <Icon className="w-10 h-10" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;
