@@ -5,10 +5,10 @@ const MenuSection = ({ menuItems }) => {
     <section className="section-padding">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <span className="block text-primary uppercase tracking-wide text-sm mb-2">
+          <span className="block text-primary font-script text-7xl lg:text-9xl mb-2">
             Specialties
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Menu</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Our Menu</h2>
         </div>
 
         {/* 4-column alternating layout */}
@@ -24,7 +24,7 @@ const MenuSection = ({ menuItems }) => {
             );
 
             const textCard = (
-              <div className="bg-primary p-6 flex flex-col justify-between shadow-md">
+              <div className="bg-base-100 border-1 border-primary/40 p-6 flex flex-col justify-between shadow-md h-64">
                 <div>
                   <h3 className="text-lg font-bold mb-2">{item.title}</h3>
                   <p className="text-gray-600 mb-4">{item.tags.join(", ")}</p>
@@ -45,17 +45,21 @@ const MenuSection = ({ menuItems }) => {
 
             return (
               <React.Fragment key={index}>
-                {isEvenRow ? (
-                  <>
-                    {imageCard}
-                    {textCard}
-                  </>
-                ) : (
-                  <>
-                    {textCard}
-                    {imageCard}
-                  </>
-                )}
+                {/* Mobile: always image -> text */}
+                <div className="block md:hidden">
+                  {imageCard}
+                  {textCard}
+                </div>
+
+                {/* Desktop/Tablet: alternating 4-column layout */}
+                <React.Fragment>
+                  <div className="hidden md:block">
+                    {isEvenRow ? imageCard : textCard}
+                  </div>
+                  <div className="hidden md:block">
+                    {isEvenRow ? textCard : imageCard}
+                  </div>
+                </React.Fragment>
               </React.Fragment>
             );
           })}

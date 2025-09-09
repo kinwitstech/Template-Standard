@@ -24,47 +24,48 @@ const Navbar = ({ scrolled }) => {
 
   return (
     <>
-      {/* Top Bar */}
-      <div
-        className={`hidden md:block text-sm transition-colors duration-500 ${
-          scrolled ? "bg-white text-black shadow-sm" : "bg-transparent text-white"
-        }`}
-      >
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <PhoneIcon className="w-4 h-4" />
-              <span>+ 1235 2355 98</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <EnvelopeIcon className="w-4 h-4" />
-              <span>youremail@email.com</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2">
-            <ClockIcon className="w-4 h-4" />
-            <span>Open hours: Monday - Sunday 8:00AM - 9:00PM</span>
-          </div>
+      {!scrolled && (
+  <div
+    className={`hidden md:block fixed top-0 left-0 right-0 z-50 text-sm transition-colors duration-500
+      bg-transparent text-white
+    `}
+  >
+    <div className="max-w-screen bg-white/10 mx-auto px-5 lg:px-15 py-4 flex justify-between items-center">
+      <div className="flex items-center space-x-15">
+        <div className="flex items-center space-x-2">
+          <PhoneIcon className="w-4 h-4" />
+          <span className="text-md">+ 1235 2355 98</span>
+        </div>
+        <div className="flex items-center space-x-2">
+          <EnvelopeIcon className="w-4 h-4" />
+          <span className="text-md">youremail@email.com</span>
         </div>
       </div>
+      <div className="flex items-center space-x-2">
+        <ClockIcon className="w-4 h-4" />
+        <span className="text-md">Open hours: Monday - Sunday 8:00AM - 9:00PM</span>
+      </div>
+    </div>
+  </div>
+)}
 
-      {/* Main Navigation */}
-      <nav
-        className={`fixed top-0 md:top-8 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white"
+{/* Main Navigation */}
+<nav
+  className={`fixed left-0 right-0 z-50 transition-all duration-500
+    ${scrolled ? "top-0 bg-white text-black shadow-md" : "top-8 bg-transparent text-white"}
+  `}
+>
+  <div className="border-b border-primary/20 container mx-auto px-6 py-6">
+    <div className="flex justify-between items-center h-10">
+      {/* Logo */}
+      <Link
+        to="/"
+        className={`text-2xl font-extrabold transition-colors duration-500 ${
+          scrolled ? "text-black" : "text-white"
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link
-              to="/"
-              className={`font-script text-3xl font-bold transition-colors duration-500 ${
-                scrolled ? "text-primary" : "text-white"
-              }`}
-            >
-              Feliciano
-            </Link>
+        Feliciano
+      </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -74,10 +75,10 @@ const Navbar = ({ scrolled }) => {
                   to={item.href}
                   className={`btn-ghost transition-colors duration-300 ${
                     isActive(item.href)
-                      ? "text-primary hover:text-orange-500" 
+                      ? "text-primary hover:text-orange-500 text-md" 
                       : scrolled
-                      ? "text-gray-800"
-                      : "text-white"
+                      ? "text-gray-800 text-md"
+                      : "text-white text-md"
                   }`}
                 >
                   {item.name}
@@ -86,7 +87,7 @@ const Navbar = ({ scrolled }) => {
               <Link
                 to="/reservation"
                 className={`btn-primary ${
-                  scrolled ? "bg-primary text-white" : "bg-white text-black"
+                  scrolled ? "bg-primary text-white text-md rounded-none" : "bg-primary text-white text-md rounded-box"
                 }`}
               >
                 Book a table
@@ -113,7 +114,7 @@ const Navbar = ({ scrolled }) => {
         <div
           className={`fixed top-0 right-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out md:hidden
             ${isOpen ? "translate-x-0" : "translate-x-full"} 
-            ${scrolled ? "bg-white border-l border-gray-200" : "bg-black/90 border-l border-gray-700"}
+            ${scrolled ? "bg-white border-l border-gray-200" : "bg-black/90"}
           `}
         >
           <div className="p-6 flex flex-col space-y-6">

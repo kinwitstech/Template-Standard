@@ -3,18 +3,18 @@ import { ClockIcon, PhoneIcon } from "@heroicons/react/24/outline";
 const AboutSection = () => {
   return (
     <section className="section-padding">
-      <div className="container mx-auto px-10">
+      <div className="container mx-auto lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Images */}
           <div className="lg:col-span-7 flex space-x-4">
             <div
-              className="flex-1 h-80 bg-cover bg-center rounded-lg shadow-md"
+              className="flex-1 h-150 bg-cover bg-center shadow-md"
               style={{
                 backgroundImage: `url('https://images.unsplash.com/photo-1572715376701-98568319fd0b?q=80&w=687&auto=format&fit=crop&ixlib=rb')`,
               }}
             ></div>
             <div
-              className="flex-1 h-80 bg-cover bg-center rounded-lg shadow-md"
+              className="flex-1 h-150 bg-cover bg-center shadow-md translate-y-8"
               style={{
                 backgroundImage: `url('https://images.unsplash.com/photo-1710575326152-4a397c13716d?q=80&w=687&auto=format&fit=crop&ixlib=rb')`,
               }}
@@ -24,7 +24,7 @@ const AboutSection = () => {
           {/* Text */}
           <div className="lg:col-span-5 pt-6 lg:pt-0">
             <div className="mb-6">
-              <span className="text-primary text-xl block mb-2">About</span>
+              <span className="text-primary font-script text-8xl block">About</span>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Feliciano Restaurant
               </h2>
@@ -43,10 +43,9 @@ const AboutSection = () => {
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <PhoneIcon className="w-6 h-6 text-primary" />
                 <a
                   href="tel:+19781234567"
-                  className="font-bold text-lg hover:text-primary"
+                  className="text-primary font-bold text-md md:text-2xl lg:4xl"
                 >
                   + 1-978-123-4567
                 </a>

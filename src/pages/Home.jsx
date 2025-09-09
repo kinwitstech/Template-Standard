@@ -15,10 +15,10 @@ import {
 
 const Home = () => {
   const stats = [
-    { number: "15", label: "Years of Experienced" },
-    { number: "50", label: "Menus/Dish" },
-    { number: "30", label: "Staffs" },
-    { number: "10,000", label: "Happy Customers" },
+    { number: "15", label: "YEARS OF EXPERIENCE" },
+    { number: "50", label: "DISHES / MENU" },
+    { number: "30", label: "STAFFS" },
+    { number: "10000", label: "HAPPY CUSTOMERS" },
   ];
 
   const services = [
