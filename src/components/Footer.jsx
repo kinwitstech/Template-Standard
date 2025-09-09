@@ -1,8 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 section-padding">
+    <footer className="bg-black/90 text-gray-300 section-padding">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
           {/* Column 1: About */}
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Feliciano</h2>
@@ -26,65 +27,36 @@ const Footer = () => {
           {/* Column 2: Open Hours */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-4">Open Hours</h2>
-            <ul className="space-y-2">
-              <li className="flex justify-between">
-                <span>Monday</span> <span>9:00 - 24:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Tuesday</span> <span>9:00 - 24:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Wednesday</span> <span>9:00 - 24:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Thursday</span> <span>9:00 - 24:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Friday</span> <span>9:00 - 02:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Saturday</span> <span>9:00 - 02:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sunday</span> <span>9:00 - 02:00</span>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-y-2 text-sm">
+              <span>Monday</span><span className="text-right">9:00 - 24:00</span>
+              <span>Tuesday</span><span className="text-right">9:00 - 24:00</span>
+              <span>Wednesday</span><span className="text-right">9:00 - 24:00</span>
+              <span>Thursday</span><span className="text-right">9:00 - 24:00</span>
+              <span>Friday</span><span className="text-right">9:00 - 02:00</span>
+              <span>Saturday</span><span className="text-right">9:00 - 02:00</span>
+              <span>Sunday</span><span className="text-right">9:00 - 02:00</span>
+            </div>
           </div>
 
           {/* Column 3: Instagram */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-4">Instagram</h2>
-            <div className="grid grid-cols-3 gap-2">
-              <a
-                href="#"
-                className="w-full h-20 bg-cover bg-center"
-                style={{ backgroundImage: "url(images/insta-1.jpg)" }}
-              />
-              <a
-                href="#"
-                className="w-full h-20 bg-cover bg-center"
-                style={{ backgroundImage: "url(images/insta-2.jpg)" }}
-              />
-              <a
-                href="#"
-                className="w-full h-20 bg-cover bg-center"
-                style={{ backgroundImage: "url(images/insta-3.jpg)" }}
-              />
-              <a
-                href="#"
-                className="w-full h-20 bg-cover bg-center"
-                style={{ backgroundImage: "url(images/insta-4.jpg)" }}
-              />
-              <a
-                href="#"
-                className="w-full h-20 bg-cover bg-center"
-                style={{ backgroundImage: "url(images/insta-5.jpg)" }}
-              />
-              <a
-                href="#"
-                className="w-full h-20 bg-cover bg-center"
-                style={{ backgroundImage: "url(images/insta-6.jpg)" }}
-              />
+            <div className="grid grid-cols-3">
+              {[
+                "https://images.unsplash.com/photo-1614627293113-e7e68163d958?q=80&w=880&auto=format&fit=crop&ixlib=rb",
+                "https://plus.unsplash.com/premium_photo-1723377627996-1003fa5152cb?q=80&w=921&auto=format&fit=crop&ixlib=rb",
+                "https://plus.unsplash.com/premium_photo-1698867577020-38ae235fd612?q=80&w=880&auto=format&fit=crop&ixlib=rb",
+                "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?q=80&w=1470&auto=format&fit=crop&ixlib=rb",
+                "https://images.unsplash.com/photo-1627366422957-3efa9c6df0fc?q=80&w=1470&auto=format&fit=crop&ixlib=rb",
+                "https://images.unsplash.com/photo-1572715376701-98568319fd0b?q=80&w=687&auto=format&fit=crop&ixlib=rb",
+              ].map((img, idx) => (
+                <a
+                  key={idx}
+                  href="#"
+                  className="w-full h-24 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${img})` }}
+                />
+              ))}
             </div>
           </div>
 
@@ -94,15 +66,16 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Far far away, behind the word mountains, far from the countries.
             </p>
-            <form className="flex flex-col sm:flex-row gap-2">
+
+            <form className="flex flex-col space-y-3">
               <input
-                type="text"
-                placeholder="Enter email address"
-                className="px-3 py-2 rounded-md text-gray-900 flex-1 text-center"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 bg-black/40 text-white placeholder-gray-400 text-center focus:outline-none focus:ring-0"
               />
               <button
                 type="submit"
-                className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition"
+                className="w-full bg-primary text-white py-2 transition duration-300 hover:bg-orange-600"
               >
                 Subscribe
               </button>
@@ -113,17 +86,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-6 text-center">
           <p className="text-gray-400 text-sm">
-            Copyright © {new Date().getFullYear()} All rights reserved | This
-            template is made with{" "}
-            <i className="icon-heart" aria-hidden="true"></i> by{" "}
-            <a
-              href="https://colorlib.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-primary"
-            >
-              Colorlib
-            </a>
+            Copyright © {new Date().getFullYear()} Kinwits. All rights reserved
           </p>
         </div>
       </div>

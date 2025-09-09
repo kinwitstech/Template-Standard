@@ -3,10 +3,10 @@ const ServicesSection = ({ services }) => {
     <section className="section-padding">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <span className="block text-primary uppercase tracking-wide text-sm mb-2">
+          <span className="block text-primary font-script tracking-wide text-7xl lg:text-9xl mb-2">
             Services
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
             Catering Services
           </h2>
         </div>

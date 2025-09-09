@@ -8,16 +8,23 @@ const Layout = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { location } = useRouterState();
 
+  // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
 
+  // Track scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = document.querySelector("section")?.offsetHeight || 600; 
+      const heroHeight =
+        document.querySelector("section")?.offsetHeight || 600;
       const y = window.scrollY;
-      setScrolled(y > heroHeight - 80); // adjust offset if needed
-      setShowScrollTop(y > 500);
+
+      // navbar visible after hero
+      setScrolled(y > heroHeight - 80);
+
+      // show "scroll to top" after some scroll
+      setShowScrollTop(y > 400);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,18 +36,27 @@ const Layout = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col justify-between">
+    <div className="flex min-h-screen flex-col justify-between bg-background">
+      {/* Navbar (with scroll animation controlled by scrolled) */}
       <Navbar scrolled={scrolled} />
-      <Outlet />
+
+      {/* Main content */}
+      <main className="flex-1">
+        <Outlet />
+      </main>
+
+      {/* Footer (optional) */}
       {/* <Footer /> */}
+
+      {/* Scroll-to-top button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="group from-primary to-accent text-light fixed right-8 bottom-8 z-50 animate-pulse rounded-full bg-gradient-to-r p-3 opacity-70 shadow-[0_0_20px_rgba(59,130,246,0.7)] hover:opacity-100 hover:shadow-none"
+          className="group fixed bottom-6 right-6 z-50 rounded-full bg-gradient-to-r from-primary to-accent p-3 shadow-lg opacity-70 transition-all hover:opacity-100 hover:shadow-xl sm:bottom-8 sm:right-8"
           aria-label="Scroll to top"
         >
-          <span className="group-hover:animate-flip-once block">
-            <ArrowUpFromDot />
+          <span className="group-hover:animate-bounce block">
+            <ArrowUpFromDot className="h-6 w-6 text-light" />
           </span>
         </button>
       )}
