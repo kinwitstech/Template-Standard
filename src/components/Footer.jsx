@@ -1,10 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="bg-black/90 text-gray-300 section-padding">
-      <div className="container mx-auto">
-        {/* Grid Layout */}
+    <footer className="bg-black/90 text-gray-300 py-20">
+      <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
-          {/* Column 1: About */}
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Feliciano</h2>
             <p className="text-gray-400 leading-relaxed">
@@ -24,7 +22,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Open Hours */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-4">Open Hours</h2>
             <div className="grid grid-cols-2 gap-y-2 text-sm">
@@ -38,7 +35,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 3: Instagram */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-4">Instagram</h2>
             <div className="grid grid-cols-3">
@@ -60,7 +56,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 4: Newsletter */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-4">Newsletter</h2>
             <p className="text-gray-400 mb-4">
@@ -75,7 +70,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-primary text-white py-2 transition duration-300 hover:bg-orange-600"
+                className="w-full bg-primary text-white py-2 transition duration-300 hover:bg-primary/80"
               >
                 Subscribe
               </button>
@@ -83,7 +78,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-6 text-center">
           <p className="text-gray-400 text-sm">
             Copyright © {new Date().getFullYear()} Kinwits. All rights reserved

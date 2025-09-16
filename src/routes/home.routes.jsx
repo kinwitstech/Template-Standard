@@ -2,6 +2,7 @@ import { createRoute } from "@tanstack/react-router";
 
 import { rootRouteWrapper } from "./rootRouteWrapper";
 import Home from "../pages/Home";
+import About from "../pages/About";
 import Layout from "@/components/Layout";
 
 export const homeLayoutRoute = createRoute({
@@ -16,16 +17,13 @@ export const homeIndexRoute = createRoute({
   component: Home,
 });
 
-// export const aboutUsRoute = createRoute({
-//   path: "/about-us",
-//   getParentRoute: () => homeLayoutRoute,
-//   component: AboutUs,
-// });
+export const aboutUsRoute = createRoute({
+  path: "/about",
+  getParentRoute: () => homeLayoutRoute,
+  component: About,
+});
 
-// export const portfolioRoute = createRoute({
-//   path: "/portfolio",
-//   getParentRoute: () => homeLayoutRoute,
-//   component: AboutUs,
-// });
-
-homeLayoutRoute.addChildren([homeIndexRoute]);
+homeLayoutRoute.addChildren([
+  homeIndexRoute,
+  aboutUsRoute,
+]);

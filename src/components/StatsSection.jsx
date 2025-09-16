@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { stats } from "@/data/StatsData";
 
 const AnimatedNumber = ({ target, duration = 2000, inView }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!inView) return; // Only animate when visible
+    if (!inView) return;
 
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -20,34 +21,35 @@ const AnimatedNumber = ({ target, duration = 2000, inView }) => {
     requestAnimationFrame(step);
   }, [target, duration, inView]);
 
-  return <>{count.toLocaleString()}</>; // Format nicely (e.g., 10,000)
+  return <>{count.toLocaleString()}</>;
 };
 
-const StatsSection = ({ stats }) => {
+const StatsSection = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Run animation only once
-    threshold: 0.2,    // Start when 20% of section is visible
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
   return (
-    <section className="p-5" ref={ref}>
-      <div className="container mx-auto px-6 md:px-20 lg:px-30">
+    <section className="section-padding bg-white" ref={ref}>
+      <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
           {/* Stats */}
-          <div className="md:col-span-4 grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="md:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-left">
+              <div
+                key={index}
+                className="text-center md:text-left" // center on small, left on md+
+              >
                 <strong className="block text-5xl font-bold text-primary">
                   <AnimatedNumber target={stat.number} inView={inView} />
                 </strong>
-                <span className="text-xs ml-1">
-                  {stat.label}
-                </span>
+                <span className="text-xs block">{stat.label}</span>
               </div>
             ))}
           </div>
 
-          {/* Description */}
+          {/* Side text */}
           <div className="md:col-span-1 text-center md:text-left">
             <p className="text-muted-foreground">
               A small river named Duden flows by their place and supplies it

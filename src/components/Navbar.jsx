@@ -22,32 +22,33 @@ const Navbar = ({ scrolled }) => {
 
   const isActive = (href) => location.pathname === href;
 
-  // const topBarHeight = 48; // height of top info bar in px
-
   return (
     <>
-      {/* Top Info Bar - Desktop Only */}
-      <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/10 text-white px-6 py-2 justify-between items-center">
-        <div className="flex space-x-6 items-center">
-          <PhoneIcon className="w-4 h-4" />
-          <span>+1235 2355 98</span>
-          <EnvelopeIcon className="w-4 h-4" />
-          <span>youremail@email.com</span>
-        </div>
-        <div className="flex space-x-2 items-center">
-          <ClockIcon className="w-4 h-4" />
-          <span>Mon-Sun 8:00AM - 9:00PM</span>
+      <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/10 text-white">
+        <div className="container mx-auto py-2 flex justify-between items-center">
+          <div className="flex space-x-4 items-center">
+            <PhoneIcon className="w-4 h-4" />
+            <span>+1235 2355 98</span>
+            <EnvelopeIcon className="w-4 h-4" />
+            <span>youremail@email.com</span>
+          </div>
+          <div className="flex space-x-2 items-center">
+            <ClockIcon className="w-4 h-4" />
+            <span>Mon-Sun 8:00AM - 9:00PM</span>
+          </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-500
-          ${scrolled ? "top-0 bg-white text-black shadow-md" : "top-0 bg-black text-white md:top-[48px] md:bg-transparent"}
+          ${
+            scrolled
+              ? "top-0 bg-white text-black shadow-md"
+              : "top-0 bg-black text-white md:top-[48px] md:bg-transparent"
+          }
         `}
       >
-        <div className="container mx-auto px-6 py-4 flex border-b border-primary/20 justify-between items-center">
-          {/* Logo */}
+        <div className="container flex justify-between items-center py-4 md:py-0">
           <Link
             to="/"
             className={`text-2xl font-extrabold transition-colors duration-500 ${
@@ -57,7 +58,6 @@ const Navbar = ({ scrolled }) => {
             Feliciano
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -76,32 +76,42 @@ const Navbar = ({ scrolled }) => {
             ))}
             <Link
               to="/reservation"
-              className="btn-primary rounded-sm bg-primary text-white"
+              className={`btn-primary bg-primary text-white transition-all duration-300 ${
+                scrolled ? "rounded-none" : "rounded-sm"
+              }`}
             >
               Book a table
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden transition-colors duration-300 ${
+            className={`md:hidden flex items-center space-x-2 transition-colors duration-300 ${
               scrolled ? "text-black" : "text-white"
             }`}
           >
-            {isOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
+            {isOpen ? (
+              <XMarkIcon className="w-6 h-6" />
+            ) : (
+              <>
+              <Bars3Icon className="w-6 h-6" />
+              <span classname="text-xs">MENU</span>
+              </>
+            )}
           </button>
         </div>
 
-        {/* Mobile Slide-in Menu */}
         <div
           className={`fixed top-0 right-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out md:hidden
             ${isOpen ? "translate-x-0" : "translate-x-full"} 
-            ${scrolled ? "bg-white text-black border-l border-gray-200" : "bg-black text-white"}
+            ${
+              scrolled
+                ? "bg-white text-black border-l border-gray-200"
+                : "bg-black text-white"
+            }
           `}
         >
           <div className="p-6 flex flex-col space-y-6">
-            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
               className={`self-end transition-colors duration-300 ${
@@ -111,7 +121,6 @@ const Navbar = ({ scrolled }) => {
               <XMarkIcon className="w-6 h-6" />
             </button>
 
-            {/* Menu Items */}
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -131,7 +140,7 @@ const Navbar = ({ scrolled }) => {
 
             <Link
               to="/reservation"
-              className="btn-primary text-center"
+              className="btn-primary text-center rounded-sm"
               onClick={() => setIsOpen(false)}
             >
               Book a table
