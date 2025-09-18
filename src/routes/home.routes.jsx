@@ -3,6 +3,7 @@ import { createRoute } from "@tanstack/react-router";
 import { rootRouteWrapper } from "./rootRouteWrapper";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import Contact from "../pages/Contact";
 import Layout from "@/components/Layout";
 
 export const homeLayoutRoute = createRoute({
@@ -23,7 +24,14 @@ export const aboutUsRoute = createRoute({
   component: About,
 });
 
+export const contactUsRoute = createRoute({
+  path: "/contact",
+  getParentRoute: () => homeLayoutRoute,
+  component: Contact,
+});
+
 homeLayoutRoute.addChildren([
   homeIndexRoute,
   aboutUsRoute,
+  contactUsRoute,
 ]);

@@ -8,7 +8,7 @@ export const slides = [
           image:
             "https://images.unsplash.com/photo-1538974463296-4d76476ffeb2?q=80&w=1470&auto=format&fit=crop&ixlib=rb",
           name: "Grilled Beef with potatoes",
-          ingredients: "Meat, Potatoes, Rice, Tomatoes",
+          ingredients: "Meat, Potatoes, Rice",
         },
         {
           image:
@@ -39,7 +39,7 @@ export const slides = [
           image:
             "https://images.unsplash.com/photo-1538974463296-4d76476ffeb2?q=80&w=1470&auto=format&fit=crop&ixlib=rb",
           name: "Grilled Beef with potatoes",
-          ingredients: "Meat, Potatoes, Rice, Tomatoes",
+          ingredients: "Meat, Potatoes, Rice",
         },
         {
           image:

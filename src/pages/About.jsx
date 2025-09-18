@@ -1,4 +1,4 @@
-import AboutHero from "@/components/AboutHero";
+import PagesHero from "@/components/PagesHero";
 import AboutSection from "@/components/AboutSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -11,7 +11,7 @@ const About = () => {
     
   return (
     <div>
-        <AboutHero />
+        <PagesHero title="About" />
         <AboutSection />
         <StatsSection />
         <ServicesSection />

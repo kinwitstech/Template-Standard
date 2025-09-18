@@ -31,7 +31,7 @@ const StatsSection = () => {
   });
 
   return (
-    <section className="section-padding bg-white" ref={ref}>
+    <section className="pt-8 px-10 mb-30 bg-white" ref={ref}>
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
           {/* Stats */}
@@ -51,7 +51,7 @@ const StatsSection = () => {
 
           {/* Side text */}
           <div className="md:col-span-1 text-center md:text-left">
-            <p className="text-muted-foreground">
+            <p className="text-gray-500">
               A small river named Duden flows by their place and supplies it
               with the necessary regelialia.
             </p>

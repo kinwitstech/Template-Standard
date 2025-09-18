@@ -2,7 +2,7 @@ import { services } from "@/data/ServicesData";
 
 const ServicesSection = () => {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-primary/5">
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-12">
           <span className="block text-primary font-script tracking-wide text-7xl lg:text-9xl mb-2">

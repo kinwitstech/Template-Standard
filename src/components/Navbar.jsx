@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Bars3Icon,
@@ -8,8 +8,9 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 
-const Navbar = ({ scrolled }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { location } = useRouterState();
 
   const navItems = [
@@ -22,9 +23,24 @@ const Navbar = ({ scrolled }) => {
 
   const isActive = (href) => location.pathname === href;
 
+  // 👇 detect scroll
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
-      <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/10 text-white">
+      {/* Top info bar */}
+      <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/10 text-white/40">
         <div className="container mx-auto py-2 flex justify-between items-center">
           <div className="flex space-x-4 items-center">
             <PhoneIcon className="w-4 h-4" />
@@ -39,6 +55,7 @@ const Navbar = ({ scrolled }) => {
         </div>
       </div>
 
+      {/* Main navbar */}
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-500
           ${
@@ -48,7 +65,15 @@ const Navbar = ({ scrolled }) => {
           }
         `}
       >
-        <div className="container flex justify-between items-center py-4 md:py-0">
+        <div
+          className={`container flex justify-between items-center transition-all duration-300
+            ${
+              scrolled
+                ? "py-0 border-none"
+                : "border-b border-primary/30 pb-2"
+            }
+          `}
+        >
           <Link
             to="/"
             className={`text-2xl font-extrabold transition-colors duration-500 ${
@@ -58,6 +83,7 @@ const Navbar = ({ scrolled }) => {
             Feliciano
           </Link>
 
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -84,6 +110,7 @@ const Navbar = ({ scrolled }) => {
             </Link>
           </div>
 
+          {/* Mobile menu toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden flex items-center space-x-2 transition-colors duration-300 ${
@@ -94,13 +121,14 @@ const Navbar = ({ scrolled }) => {
               <XMarkIcon className="w-6 h-6" />
             ) : (
               <>
-              <Bars3Icon className="w-6 h-6" />
-              <span classname="text-xs">MENU</span>
+                <Bars3Icon className="w-6 h-6" />
+                <span className="text-xs">MENU</span>
               </>
             )}
           </button>
         </div>
 
+        {/* Mobile nav */}
         <div
           className={`fixed top-0 right-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out md:hidden
             ${isOpen ? "translate-x-0" : "translate-x-full"} 

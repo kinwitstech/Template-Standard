@@ -13,7 +13,7 @@ const ReservationSection = () => {
 
   return (
     <section
-      className="relative bg-cover bg-center py-16"
+      className="relative bg-cover bg-center bg-fixed py-16"
       style={{
         backgroundImage: `url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1200&auto=format&fit=crop')`,
       }}

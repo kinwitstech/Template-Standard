@@ -1,3 +1,5 @@
+import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="bg-black/90 text-gray-300 py-20">
@@ -11,13 +13,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-4 justify-center md:justify-start">
               <a href="#" className="hover:text-primary transition">
-                <span className="icon-twitter"></span>
+                <FaTwitter className="w-5 h-5" />
               </a>
               <a href="#" className="hover:text-primary transition">
-                <span className="icon-facebook"></span>
+                <FaFacebookF className="w-5 h-5" />
               </a>
               <a href="#" className="hover:text-primary transition">
-                <span className="icon-instagram"></span>
+                <FaInstagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -78,7 +80,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-6 text-center">
+        <div className="pt-6 text-center">
           <p className="text-gray-400 text-sm">
             Copyright © {new Date().getFullYear()} Kinwits. All rights reserved
           </p>
