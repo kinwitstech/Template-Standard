@@ -23,32 +23,28 @@ const Navbar = () => {
 
   const isActive = (href) => location.pathname === href;
 
-  // 👇 detect scroll
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      {/* Top info bar */}
+      {/* Top info bar: hidden on mobile */}
       <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/10 text-white/40">
-        <div className="container mx-auto py-2 flex justify-between items-center">
-          <div className="flex space-x-4 items-center">
+        <div className="container mx-auto py-2 grid grid-cols-3 items-center">
+          <div className="flex items-center justify-start space-x-2">
             <PhoneIcon className="w-4 h-4" />
             <span>+1235 2355 98</span>
+          </div>
+          <div className="flex items-center justify-center space-x-2">
             <EnvelopeIcon className="w-4 h-4" />
             <span>youremail@email.com</span>
           </div>
-          <div className="flex space-x-2 items-center">
+          <div className="flex items-center justify-end space-x-2">
             <ClockIcon className="w-4 h-4" />
             <span>Mon-Sun 8:00AM - 9:00PM</span>
           </div>
@@ -57,23 +53,20 @@ const Navbar = () => {
 
       {/* Main navbar */}
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-500
-          ${
-            scrolled
-              ? "top-0 bg-white text-black shadow-md"
-              : "top-0 bg-black text-white md:top-[48px] md:bg-transparent"
-          }
-        `}
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "top-0 bg-white text-black shadow-md"
+            : "top-0 bg-black text-white md:top-[48px] md:bg-transparent"
+        }`}
       >
         <div
-          className={`container flex justify-between items-center transition-all duration-300
-            ${
-              scrolled
-                ? "py-0 border-none"
-                : "border-b border-primary/30 pb-2"
-            }
-          `}
+          className={`container flex justify-between items-center transition-all duration-300 ${
+            scrolled
+              ? "py-3 md:py-0 border-none"
+              : "py-4 md:pb-2 border-b border-primary/30"
+          }`}
         >
+          {/* Logo */}
           <Link
             to="/"
             className={`text-2xl font-extrabold transition-colors duration-500 ${
@@ -83,7 +76,7 @@ const Navbar = () => {
             Feliciano
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav: hidden on mobile */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -128,18 +121,13 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile nav */}
+        {/* Mobile nav: slides from right */}
         <div
-          className={`fixed top-0 right-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out md:hidden
-            ${isOpen ? "translate-x-0" : "translate-x-full"} 
-            ${
-              scrolled
-                ? "bg-white text-black border-l border-gray-200"
-                : "bg-black text-white"
-            }
-          `}
+          className={`fixed top-0 right-0 h-full w-72 z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          } ${scrolled ? "bg-white text-black" : "bg-black text-white"}`}
         >
-          <div className="p-6 flex flex-col space-y-6">
+          <div className="p-8 flex flex-col space-y-6">
             <button
               onClick={() => setIsOpen(false)}
               className={`self-end transition-colors duration-300 ${

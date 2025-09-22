@@ -1,5 +1,5 @@
 import React from "react";
-import { menuItems } from "@/data/MenuData";
+import { menuItems } from "@/data/HomeMenuData";
 
 const MenuSection = () => {
   return (

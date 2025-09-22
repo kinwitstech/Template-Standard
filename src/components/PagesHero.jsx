@@ -4,7 +4,10 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 const HeroSection = ({ title }) => {
   return (
     <section
-      className="relative w-full h-[60vh] bg-center bg-no-repeat bg-cover flex items-end justify-center"
+      className="relative w-full 
+                h-[50vh] 
+                bg-center bg-no-repeat bg-cover 
+                flex items-end justify-center"
       style={{
         backgroundImage: `url("https://images.unsplash.com/photo-1756478629526-fae9466191f1?q=80&w=1933&auto=format&fit=crop&ixlib=rb")`,
       }}

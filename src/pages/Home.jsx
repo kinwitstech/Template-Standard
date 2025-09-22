@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import AboutSection from "../components/AboutSection";
 import StatsSection from "../components/StatsSection";
 import ServicesSection from "../components/ServicesSection";
-import MenuSection from "../components/MenuSection";
+import MenuSection from "../components/HomeMenuSection";
 import ChefSection from "@/components/ChefSection";
 import ReservationSection from "@/components/ReservationSection";
 import TestimonySection from "@/components/Testimonysection";
