@@ -6,7 +6,7 @@ import ServicesSection from "../components/ServicesSection";
 import MenuSection from "../components/HomeMenuSection";
 import ChefSection from "@/components/ChefSection";
 import ReservationSection from "@/components/ReservationSection";
-import TestimonySection from "@/components/Testimonysection";
+import TestimonySection from "@/components/TestimonySection";
 import BlogSection from "@/components/BlogSection";
 
 import Footer from "../components/Footer";
