@@ -1,0 +1,89 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import { slides } from "@/data/HeroData";
+
+const Hero = () => {
+  return (
+    <>
+      <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop
+          className="absolute inset-0 w-full h-full"
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${slide.background})`,
+                }}
+              >
+                {/* Hero Content */}
+                <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center">
+                  {/* Title Section */}
+                  <div className="pt-40 md:pt-60">
+                    <h2 className="font-script text-primary text-6xl md:text-7xl mb-4">
+                      Feliciano
+                    </h2>
+                    <h1 className="text-4xl md:text-6xl font-bold text-white text-shadow">
+                      {slide.title}
+                    </h1>
+                  </div>
+
+                  {/* Food Grid Section (separate) */}
+                  <div className="border-t border-primary/20 pt-5 mt-20 sm:grid grid-cols-2 lg:grid-cols-4 gap-30 hidden">
+                    {slide.foods.map((food, i) => (
+                      <div key={i} className="text-center slide-up">
+                        <div className="food-card mx-auto mb-4 w-28 md:w-25 aspect-square overflow-hidden rounded-full shadow-lg">
+                          <img
+                            src={food.image}
+                            alt={food.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <h3 className="text-lg font-bold text-white mb-1">
+                          {food.name}
+                        </h3>
+                        <p className="text-sm text-gray-300">
+                          {food.ingredients}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+
+      {/* Mobile Food Grid (separate but still under hero) */}
+      <div className="sm:hidden container mx-auto px-4 mt-6">
+        <div className="grid grid-cols-1 gap-4">
+          {slides[0].foods.map((food, index) => (
+            <div key={index} className="text-center slide-up">
+              <div className="food-card mx-auto mb-4 w-32 aspect-square overflow-hidden rounded-full shadow-lg">
+                <img
+                  src={food.image}
+                  alt={food.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 mb-1">
+                {food.name}
+              </h3>
+              <p className="text-sm text-gray-600">{food.ingredients}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Hero;

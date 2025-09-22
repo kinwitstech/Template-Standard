@@ -1,1 +1,1 @@
-# Template-Standard
+# TEMPLATE-STANDARD
