@@ -5,6 +5,8 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Layout from "@/components/Layout";
+import Menu from "../pages/Menu";
+import Stories from "../pages/Stories";
 
 export const homeLayoutRoute = createRoute({
   id: "homeLayout",
@@ -30,8 +32,22 @@ export const contactUsRoute = createRoute({
   component: Contact,
 });
 
+export const menuRoute = createRoute({
+  path: "/menu",
+  getParentRoute: () => homeLayoutRoute,
+  component: Menu,
+});
+
+export const storiesRoute = createRoute({
+  path: "/stories",
+  getParentRoute: () => homeLayoutRoute,
+  component: Stories,
+});
+
 homeLayoutRoute.addChildren([
   homeIndexRoute,
   aboutUsRoute,
   contactUsRoute,
+  menuRoute,
+  storiesRoute,
 ]);
