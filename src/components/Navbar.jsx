@@ -55,8 +55,8 @@ const Navbar = () => {
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "top-0 bg-white text-black shadow-md"
-            : "top-0 bg-black text-white md:top-[48px] md:bg-transparent"
+            ? "top-0 bg-white text-black py-2 md:py-4 lg:py-0 shadow-md"
+            : "top-0 bg-black text-white lg:top-[48px] lg:bg-transparent"
         }`}
       >
         <div
@@ -77,7 +77,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop nav: hidden on mobile */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -106,7 +106,7 @@ const Navbar = () => {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden flex items-center space-x-2 transition-colors duration-300 ${
+            className={`lg:hidden flex items-center space-x-2 transition-colors duration-300 ${
               scrolled ? "text-black" : "text-white"
             }`}
           >
@@ -123,7 +123,7 @@ const Navbar = () => {
 
         {/* Mobile nav: slides from right */}
         <div
-          className={`fixed top-0 right-0 h-full w-72 z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+          className={`fixed top-0 right-0 h-full w-72 z-40 transform transition-transform duration-300 ease-in-out lg:hidden ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } ${scrolled ? "bg-white text-black" : "bg-black text-white"}`}
         >

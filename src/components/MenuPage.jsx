@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import { menuPageData } from '@/data/MenuPageData';
+import React, { useState } from "react";
+import { menuPageData } from "@/data/MenuPageData";
 
 const MenuPage = () => {
-  const [activeTab, setActiveTab] = useState('breakfast');
+  const [activeTab, setActiveTab] = useState("breakfast");
 
   const handleOrder = (item) => {
-    console.log('Ordering:', item.name);
+    console.log("Ordering:", item.name);
     alert(`Added ${item.name} to your order!`);
   };
 
   return (
-    <section className="py-16 bg-white min-h-screen">
-      <div className="container mx-auto">
-        {/* Tab Navigation */}
+    <section className="py-20 bg-white min-h-screen">
+      <div className="container mx-auto pt-10">
+        {/* Tabs */}
         <div className="mb-12 w-full">
           <div className="flex flex-col md:flex-row w-full">
             {menuPageData.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`w-full md:flex-1 text-center px-4 py-4 font-semibold text-lg transition-all duration-300 relative ${
+                className={`w-full md:flex-1 text-center px-4 py-4 font-semibold text-xl transition-all duration-300 relative ${
                   activeTab === category.id
-                    ? 'bg-primary text-white'
-                    : 'bg-primary/20 mb-1 text-gray-700 md:bg-white md:text-gray-700 hover:bg-gray-100 md:hover:bg-white'
+                    ? "bg-primary text-white"
+                    : "bg-primary/20 text-gray-700 md:bg-white md:text-gray-700 hover:bg-primary hover:text-white"
                 } md:relative`}
               >
                 {category.name}
@@ -41,11 +41,11 @@ const MenuPage = () => {
               key={category.id}
               className={`transition-all duration-500 ${
                 activeTab === category.id
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4 absolute inset-0 pointer-events-none'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4 absolute inset-0 pointer-events-none"
               }`}
             >
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                 {category.items.map((item, index) => {
                   const isImageFirst = Math.floor(index / 2) % 2 === 0;
 
@@ -64,7 +64,9 @@ const MenuPage = () => {
                     >
                       <div>
                         <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                        <p className="text-gray-600 mb-4">{item.ingredients}</p>
+                        <p className="text-gray-600 mb-4">
+                          {item.ingredients}
+                        </p>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-primary font-bold text-xl">
@@ -72,7 +74,7 @@ const MenuPage = () => {
                         </span>
                         <button
                           onClick={() => handleOrder(item)}
-                          className="px-4 py-2 bg-primary text-white font-semibold border border-primary hover:bg-white hover:text-primary transition"
+                          className="px-3 py-1.5 text-sm bg-primary text-white font-semibold border border-primary hover:bg-white hover:text-primary transition"
                         >
                           Order now
                         </button>
@@ -82,17 +84,23 @@ const MenuPage = () => {
 
                   return (
                     <React.Fragment key={item.id}>
-                      {/* Mobile: stacked image + text */}
+                      {/* Mobile (<768px): stacked */}
                       <div className="block md:hidden">
                         {imageCard}
                         {textCard}
                       </div>
 
-                      {/* Desktop: side-by-side alternating layout */}
-                      <div className="hidden md:block">
+                      {/* Tablet (768px–1023px): always image + text side by side */}
+                      <div className="hidden md:grid lg:hidden grid-cols-2">
+                        {imageCard}
+                        {textCard}
+                      </div>
+
+                      {/* Laptop/Desktop (≥1024px): alternating */}
+                      <div className="hidden lg:block">
                         {isImageFirst ? imageCard : textCard}
                       </div>
-                      <div className="hidden md:block">
+                      <div className="hidden lg:block">
                         {isImageFirst ? textCard : imageCard}
                       </div>
                     </React.Fragment>
