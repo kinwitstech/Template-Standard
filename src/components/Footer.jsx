@@ -2,8 +2,8 @@ import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black/90 text-gray-300 py-20">
-      <div className="container">
+    <footer className="bg-black/90 text-gray-300">
+      <div className="container section-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Feliciano</h2>

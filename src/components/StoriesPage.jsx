@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/outline";
+import { Link } from "@tanstack/react-router";
 import { blogPosts } from "@/data/StoriesPageData";
 
 const StoriesPage = () => {
@@ -26,31 +27,40 @@ const StoriesPage = () => {
   };
 
   return (
-    <section ref={sectionRef} className="container py-25">
-      {/* Blog Grid: 3 columns for sm+ screens */}
+    <section ref={sectionRef} className="container section-padding">
+      {/* Blog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
         {currentPosts.map((post) => (
           <div
             key={post.id}
             className="bg-white shadow-md overflow-hidden hover:shadow-lg transition"
           >
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-80 object-cover"
-            />
+            {/* Image now links to /stories/blog */}
+            <Link to="/stories/blog">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-80 object-cover"
+              />
+            </Link>
+
             <div className="p-5">
               <p className="text-gray-500 text-sm">
                 {post.date} &nbsp; {post.author}
               </p>
-              <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
+
+              <h3 className="text-lg font-semibold mt-2">
+                <Link to="/stories/blog" className="hover:underline">
+                  {post.title}
+                </Link>
+              </h3>
+
               <div className="flex items-center justify-between mt-4">
-                <a
-                  href="#"
-                  className="text-gray-800 font-medium hover:underline"
-                >
+                {/* Read more links to /stories/blog */}
+                <Link to="/stories/blog" className="text-gray-800 font-medium hover:underline">
                   Read more
-                </a>
+                </Link>
+
                 <span className="flex items-center text-gray-500 text-sm">
                   <ChatBubbleLeftEllipsisIcon className="h-5 w-5 mr-1" />
                   {post.comments}

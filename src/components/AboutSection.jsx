@@ -22,8 +22,8 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section className="section-padding">
-      <div className="container lg:px-10 fade-in">
+    <section className="py-20 mx-auto">
+      <div className="container section-padding fade-in">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 fade-in">
             <div className="grid grid-cols-2 gap-4 h-full">

@@ -10,8 +10,8 @@ const MenuPage = () => {
   };
 
   return (
-    <section className="py-20 bg-white min-h-screen">
-      <div className="container mx-auto pt-10">
+    <section className="bg-white min-h-screen">
+      <div className="container section-padding mx-auto pt-10">
         {/* Tabs */}
         <div className="mb-12 w-full">
           <div className="flex flex-col md:flex-row w-full">
@@ -22,7 +22,7 @@ const MenuPage = () => {
                 className={`w-full md:flex-1 text-center px-4 py-4 font-semibold text-xl transition-all duration-300 relative ${
                   activeTab === category.id
                     ? "bg-primary text-white"
-                    : "bg-primary/20 text-gray-700 md:bg-white md:text-gray-700 hover:bg-primary hover:text-white"
+                    : "bg-primary/20 mb-1 text-gray-700 md:bg-white md:text-gray-700 hover:bg-primary hover:text-white"
                 } md:relative`}
               >
                 {category.name}

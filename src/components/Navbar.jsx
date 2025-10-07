@@ -60,65 +60,70 @@ const Navbar = () => {
         }`}
       >
         <div
-          className={`container flex justify-between items-center transition-all duration-300 ${
-            scrolled
-              ? "py-3 md:py-0 border-none"
-              : "py-4 md:pb-2 border-b border-primary/30"
+          className={`relative transition-all duration-300 ${
+            scrolled ? "py-3 md:py-0" : "py-4 md:pb-2"
           }`}
         >
-          {/* Logo */}
-          <Link
-            to="/"
-            className={`text-2xl font-extrabold transition-colors duration-500 ${
-              scrolled ? "text-black" : "text-white"
-            }`}
-          >
-            Feliciano
-          </Link>
+          {/* ✅ Full-width border only when not scrolled */}
+          {!scrolled && (
+            <div className="absolute bottom-0 left-0 w-full border-b border-primary/30" />
+          )}
 
-          {/* Desktop nav: hidden on mobile */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`transition-colors duration-300 ${
-                  isActive(item.href)
-                    ? "text-primary"
-                    : scrolled
-                    ? "text-gray-800"
-                    : "text-white"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="container px-5 md:px-15 flex justify-between items-center relative z-10">
+            {/* Logo */}
             <Link
-              to="/reservation"
-              className={`btn-primary bg-primary text-white transition-all duration-300 ${
-                scrolled ? "rounded-none" : "rounded-sm"
+              to="/"
+              className={`text-2xl font-extrabold transition-colors duration-500 ${
+                scrolled ? "text-black" : "text-white"
               }`}
             >
-              Book a table
+              Feliciano
             </Link>
-          </div>
 
-          {/* Mobile menu toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden flex items-center space-x-2 transition-colors duration-300 ${
-              scrolled ? "text-black" : "text-white"
-            }`}
-          >
-            {isOpen ? (
-              <XMarkIcon className="w-6 h-6" />
-            ) : (
-              <>
-                <Bars3Icon className="w-6 h-6" />
-                <span className="text-xs">MENU</span>
-              </>
-            )}
-          </button>
+            {/* Desktop nav: hidden on mobile */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`transition-colors duration-300 ${
+                    isActive(item.href)
+                      ? "text-primary"
+                      : scrolled
+                      ? "text-gray-800"
+                      : "text-white"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                to="/reservation"
+                className={`btn-primary bg-primary text-white transition-all duration-300 ${
+                  scrolled ? "rounded-none" : "rounded-sm"
+                }`}
+              >
+                Book a table
+              </Link>
+            </div>
+
+            {/* Mobile menu toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`lg:hidden flex items-center space-x-2 transition-colors duration-300 ${
+                scrolled ? "text-black" : "text-white"
+              }`}
+            >
+              {isOpen ? (
+                <XMarkIcon className="w-6 h-6" />
+              ) : (
+                <>
+                  <Bars3Icon className="w-6 h-6" />
+                  <span className="text-xs">MENU</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile nav: slides from right */}

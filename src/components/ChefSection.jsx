@@ -3,8 +3,8 @@ import { chefs } from "@/data/ChefData";
 
 const ChefSection = () => {
   return (
-    <section className="section-padding">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12">
+    <section className="">
+      <div className="container section-padding">
         <div className="text-center mb-12">
           <span className="text-primary font-script text-6xl lg:text-9xl block">
             Chef

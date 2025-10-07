@@ -31,7 +31,7 @@ const StatsSection = () => {
   });
 
   return (
-    <section className="pt-8 px-10 mb-30 bg-white" ref={ref}>
+    <section className="pt-8 mb-30 bg-white" ref={ref}>
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
           {/* Stats */}
