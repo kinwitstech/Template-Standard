@@ -10,11 +10,6 @@ import TestimonySection from "@/components/TestimonySection";
 import BlogSection from "@/components/BlogSection";
 
 import Footer from "../components/Footer";
-import {
-  CakeIcon,
-  BriefcaseIcon,
-  HeartIcon,
-} from "@heroicons/react/24/outline";
 
 const Home = () => {
 
