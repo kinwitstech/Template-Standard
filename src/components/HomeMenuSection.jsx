@@ -3,8 +3,8 @@ import { menuItems } from "@/data/HomeMenuData";
 
 const MenuSection = () => {
   return (
-    <section className="section-padding bg-white">
-      <div className="container md:px-8 lg:px-10">
+    <section className="bg-white">
+      <div className="container section-padding md:px-8 lg:px-10">
         <div className="text-center mb-12">
           <span className="block text-primary font-script text-7xl lg:text-9xl mb-2">
             Specialties
@@ -38,7 +38,7 @@ const MenuSection = () => {
                   </span>
                   <a
                     href="#"
-                    className="px-4 py-2 bg-primary text-white font-semibold rounded hover:bg-primary/90 transition"
+                    className="px-4 py-2 md:w-20 md:h-15 bg-primary text-white font-semibold rounded hover:bg-primary/90 transition"
                   >
                     Order now
                   </a>

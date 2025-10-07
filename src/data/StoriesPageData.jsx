@@ -7,6 +7,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Taste the delicious foods in Asia",
     comments: 3,
+    link: "/stories/blog",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Explore the best street food in Europe",
     comments: 5,
+    link: "/stories/blog",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Healthy eating tips for a better life",
     comments: 2,
+    link: "/stories/blog",
   },
   {
     id: 1,
@@ -34,6 +37,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Taste the delicious foods in Asia",
     comments: 3,
+    link: "/stories/blog",
   },
   {
     id: 2,
@@ -43,6 +47,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Explore the best street food in Europe",
     comments: 5,
+    link: "/stories/blog",
   },
   {
     id: 3,
@@ -52,6 +57,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Healthy eating tips for a better life",
     comments: 2,
+    link: "/stories/blog",
   },
   {
     id: 1,
@@ -61,6 +67,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Taste the delicious foods in Asia",
     comments: 3,
+    link: "/stories/blog",
   },
   {
     id: 2,
@@ -70,6 +77,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Explore the best street food in Europe",
     comments: 5,
+    link: "/stories/blog",
   },
   {
     id: 3,
@@ -79,6 +87,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Healthy eating tips for a better life",
     comments: 2,
+    link: "/stories/blog",
   },
   {
     id: 1,
@@ -88,6 +97,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Taste the delicious foods in Asia",
     comments: 3,
+    link: "/stories/blog",
   },
   {
     id: 2,
@@ -97,6 +107,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Explore the best street food in Europe",
     comments: 5,
+    link: "/stories/blog",
   },
   {
     id: 3,
@@ -106,6 +117,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Healthy eating tips for a better life",
     comments: 2,
+    link: "/stories/blog",
   },
   {
     id: 1,
@@ -115,6 +127,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Taste the delicious foods in Asia",
     comments: 3,
+    link: "/stories/blog",
   },
   {
     id: 2,
@@ -124,6 +137,7 @@ export const blogPosts = [
     author: "Admin",
     title: "Explore the best street food in Europe",
     comments: 5,
+    link: "/stories/blog",
   },
   {
     id: 3,
@@ -133,5 +147,6 @@ export const blogPosts = [
     author: "Admin",
     title: "Healthy eating tips for a better life",
     comments: 2,
+    link: "/stories/blog",
   },
 ];

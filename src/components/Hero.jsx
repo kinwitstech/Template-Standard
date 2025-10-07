@@ -36,7 +36,7 @@ const Hero = () => {
                   </div>
 
                   {/* Food Grid Section (separate) */}
-                  <div className="border-t border-primary/20 pt-5 mt-20 sm:grid grid-cols-2 lg:grid-cols-4 gap-30 hidden">
+                  <div className="border-t border-primary/20 pt-10 mt-20 xl:mt-30 sm:grid grid-cols-2 lg:grid-cols-4 gap-30 hidden">
                     {slide.foods.map((food, i) => (
                       <div key={i} className="text-center slide-up">
                         <div className="food-card mx-auto mb-4 w-28 md:w-25 aspect-square overflow-hidden rounded-full shadow-lg">

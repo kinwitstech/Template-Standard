@@ -7,8 +7,8 @@ import { testimonials } from "@/data/TestimonyData";
 
 const TestimonySection = () => {
   return (
-    <section className="relative bg-white py-16 bg-cover bg-center testimony-section">
-      <div className="relative container mx-auto px-4 md:px-8 lg:px-12">
+    <section className="relative bg-white bg-cover bg-center">
+      <div className="relative container section-padding">
         <div className="text-center mb-12 z-10 relative">
           <span className="text-primary font-script text-6xl lg:text-9xl block">
             Testimony

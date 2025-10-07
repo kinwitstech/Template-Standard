@@ -7,6 +7,7 @@ import Contact from "../pages/Contact";
 import Layout from "@/components/Layout";
 import Menu from "../pages/Menu";
 import Stories from "../pages/Stories";
+import Blogs from "@/pages/Blogs";
 
 export const homeLayoutRoute = createRoute({
   id: "homeLayout",
@@ -44,10 +45,17 @@ export const storiesRoute = createRoute({
   component: Stories,
 });
 
+export const blogRoute = createRoute({
+  path: "/stories/blog",
+  getParentRoute: () => homeLayoutRoute,
+  component: Blogs,
+});
+
 homeLayoutRoute.addChildren([
   homeIndexRoute,
   aboutUsRoute,
   contactUsRoute,
   menuRoute,
   storiesRoute,
+  blogRoute,
 ]);
