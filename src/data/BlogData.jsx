@@ -1,4 +1,3 @@
-// blogData.js
 export const blogPosts = [
   {
     id: 1,

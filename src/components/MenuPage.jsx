@@ -12,7 +12,6 @@ const MenuPage = () => {
   return (
     <section className="bg-white min-h-screen">
       <div className="container section-padding mx-auto pt-10">
-        {/* Tabs */}
         <div className="mb-12 w-full">
           <div className="flex flex-col md:flex-row w-full">
             {menuPageData.map((category) => (
@@ -34,7 +33,6 @@ const MenuPage = () => {
           </div>
         </div>
 
-        {/* Tab Content */}
         <div className="relative mb-15">
           {menuPageData.map((category) => (
             <div
@@ -84,19 +82,16 @@ const MenuPage = () => {
 
                   return (
                     <React.Fragment key={item.id}>
-                      {/* Mobile (<768px): stacked */}
                       <div className="block md:hidden">
                         {imageCard}
                         {textCard}
                       </div>
 
-                      {/* Tablet (768px–1023px): always image + text side by side */}
                       <div className="hidden md:grid lg:hidden grid-cols-2">
                         {imageCard}
                         {textCard}
                       </div>
 
-                      {/* Laptop/Desktop (≥1024px): alternating */}
                       <div className="hidden lg:block">
                         {isImageFirst ? imageCard : textCard}
                       </div>

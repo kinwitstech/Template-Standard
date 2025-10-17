@@ -53,7 +53,6 @@ export default function BlogContent() {
           </p>
         </div>
 
-        {/* Tags + Author Section */}
         <div className="mt-12 pt-8">
           <div className="flex flex-wrap items-center gap-2 mb-8">
             {["FOOD", "WINE", "DRINK", "DISH"].map((tag) => (
@@ -69,7 +68,6 @@ export default function BlogContent() {
 
           <div className="bg-gray-50 p-6 rounded-lg">
             <div className="flex items-start gap-6 mb-4">
-              {/* Fixed Image Section */}
               <div className="w-12 h-12 md:w-32 md:h-32 flex-shrink-0 bg-gray-200 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?q=80&w=1470&auto=format&fit=crop&ixlib=rb"
@@ -78,7 +76,6 @@ export default function BlogContent() {
                 />
               </div>
 
-              {/* Text Section */}
               <div className="flex-1">
                 <h2 className="text-2xl font-semibold text-gray-900">
                   George Washington

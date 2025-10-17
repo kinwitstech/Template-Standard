@@ -23,9 +23,7 @@ const Hero = () => {
                   backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${slide.background})`,
                 }}
               >
-                {/* Hero Content */}
                 <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center">
-                  {/* Title Section */}
                   <div className="pt-40 md:pt-60">
                     <h2 className="font-script text-primary text-6xl md:text-7xl mb-4">
                       Feliciano
@@ -35,7 +33,6 @@ const Hero = () => {
                     </h1>
                   </div>
 
-                  {/* Food Grid Section (separate) */}
                   <div className="border-t border-primary/20 pt-10 mt-20 xl:mt-30 sm:grid grid-cols-2 lg:grid-cols-4 gap-30 hidden">
                     {slide.foods.map((food, i) => (
                       <div key={i} className="text-center slide-up">
@@ -62,7 +59,6 @@ const Hero = () => {
         </Swiper>
       </section>
 
-      {/* Mobile Food Grid (separate but still under hero) */}
       <div className="sm:hidden container mx-auto px-4 mt-6">
         <div className="grid grid-cols-1 gap-4">
           {slides[0].foods.map((food, index) => (
