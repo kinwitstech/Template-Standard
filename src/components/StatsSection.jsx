@@ -34,12 +34,11 @@ const StatsSection = () => {
     <section className="pt-8 mb-30 bg-white" ref={ref}>
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
-          {/* Stats */}
           <div className="md:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="text-center md:text-left" // center on small, left on md+
+                className="text-center md:text-left" 
               >
                 <strong className="block text-5xl font-bold text-primary">
                   <AnimatedNumber target={stat.number} inView={inView} />
@@ -49,7 +48,6 @@ const StatsSection = () => {
             ))}
           </div>
 
-          {/* Side text */}
           <div className="md:col-span-1 text-center md:text-left">
             <p className="text-gray-500">
               A small river named Duden flows by their place and supplies it

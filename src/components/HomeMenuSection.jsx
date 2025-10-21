@@ -13,7 +13,7 @@ const MenuSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-4">
           {menuItems.map((item, index) => {
-            const isImageFirst = Math.floor(index / 2) % 2 === 0; // flip every row pair
+            const isImageFirst = Math.floor(index / 2) % 2 === 0; 
 
             const imageCard = (
               <div

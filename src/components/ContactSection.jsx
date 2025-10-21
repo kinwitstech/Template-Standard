@@ -30,7 +30,6 @@ const ContactSection = () => {
     <section>
       <div className="container px-5 md:px-15">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-          {/* Form First in Mobile */}
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="bg-white py-10 lg:px-10">
               <h2 className="text-2xl font-extrabold mb-8">Contact Us</h2>
@@ -104,7 +103,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Map Second in Mobile */}
           <div className="lg:col-span-6 order-2 lg:order-1 h-[300px] lg:h-[700px] w-full shadow-md">
             <iframe
               title="Google Map"
@@ -118,7 +116,6 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Contact Info */}
         <div className="my-20">
           <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-lg">

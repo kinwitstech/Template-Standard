@@ -12,12 +12,10 @@ const StoriesPage = () => {
   const startIndex = (currentPage - 1) * postsPerPage;
   const currentPosts = blogPosts.slice(startIndex, startIndex + postsPerPage);
 
-  // Scroll to top of page when menu tab is clicked
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  // Scroll to top of section on pagination
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
@@ -28,14 +26,12 @@ const StoriesPage = () => {
 
   return (
     <section ref={sectionRef} className="container section-padding">
-      {/* Blog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
         {currentPosts.map((post) => (
           <div
             key={post.id}
             className="bg-white shadow-md overflow-hidden hover:shadow-lg transition"
           >
-            {/* Image now links to /stories/blog */}
             <Link to="/stories/blog">
               <img
                 src={post.image}
@@ -56,7 +52,6 @@ const StoriesPage = () => {
               </h3>
 
               <div className="flex items-center justify-between mt-4">
-                {/* Read more links to /stories/blog */}
                 <Link to="/stories/blog" className="text-gray-800 font-medium hover:underline">
                   Read more
                 </Link>
@@ -71,7 +66,6 @@ const StoriesPage = () => {
         ))}
       </div>
 
-      {/* Pagination */}
       <div className="flex justify-center my-20 space-x-2">
         <button
           onClick={() => handlePageChange(currentPage - 1)}

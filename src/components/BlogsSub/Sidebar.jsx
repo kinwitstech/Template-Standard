@@ -5,8 +5,7 @@ import { categories, popularPosts, tags, archives } from '@/data/SidebarData';
 export default function Sidebar() {
 
   return (
-    <aside className="md:px-15 lg:pr-15 space-y-8 px-0 sm:px-0 sm:py-15 py-10">
-      {/* 🔍 Search Box */}
+    <aside className="px-[15px] md:px-[15px] lg:px-0 lg:pr-15 space-y-8 sm:py-15 py-10">
       <div className="bg-gray-100 p-2">
         <form className="relative">
           <Search
@@ -21,7 +20,6 @@ export default function Sidebar() {
         </form>
       </div>
 
-      {/* 🗂 Categories */}
       <div className="bg-white">
         <h3 className="text-xl text-gray-900 mb-6">Category</h3>
         <ul className="space-y-3">
@@ -41,7 +39,6 @@ export default function Sidebar() {
         </ul>
       </div>
 
-      {/* 📖 Popular Articles */}
       <div className="bg-white">
         <h3 className="text-xl font-bold text-gray-900 mb-6">Popular Articles</h3>
         <div className="space-y-10">
@@ -53,12 +50,10 @@ export default function Sidebar() {
                 className="w-20 h-20 object-cover flex-shrink-0"
               />
               <div>
-                {/* Title */}
                 <h4 className="text-xl font-medium text-gray-900 group-hover:text-gray-700 leading-tight mb-2">
                   {post.title}
                 </h4>
 
-                {/* Date and Author */}
                 <p className="text-xs text-gray-500 flex items-center gap-1 mb-1 mt-5">
                   <CalendarIcon className="w-3 h-3" />
                   {post.date}
@@ -66,7 +61,6 @@ export default function Sidebar() {
                   John Doe
                 </p>
 
-                {/* Comments */}
                 <p className="text-xs text-gray-500 flex items-center gap-1">
                   <ChatBubbleLeftIcon className="w-3 h-3" />
                   5
@@ -77,7 +71,6 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* 🏷️ Tag Cloud */}
       <div className="bg-white">
         <h3 className="text-xl font-bold text-gray-900 mb-6">Tag Cloud</h3>
         <div className="flex flex-wrap gap-2">
@@ -93,7 +86,6 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* 📅 Archives */}
       <div className="bg-white">
         <h3 className="text-xl font-bold text-gray-900 mb-6">Archives</h3>
         <ul className="space-y-3">

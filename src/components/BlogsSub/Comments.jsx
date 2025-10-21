@@ -23,11 +23,9 @@ export default function Comments() {
           Feedbacks
         </h2>
 
-        {/* Comments List */}
         <div className="space-y-10 mb-12">
           {comments.map((comment) => (
             <div key={comment.id}>
-              {/* Main Comment */}
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-14 h-14 bg-gray-200 rounded-full overflow-hidden">
@@ -56,7 +54,6 @@ export default function Comments() {
                 </div>
               </div>
 
-              {/* Replies */}
               {comment.replies.length > 0 && (
                 <div className="ml-20 mt-6 space-y-6">
                   {comment.replies.map((reply) => (
@@ -94,7 +91,6 @@ export default function Comments() {
           ))}
         </div>
 
-        {/* Comment Form */}
         <div className="pt-15">
           <h3 className="bg-gray-50 px-7 py-7 text-2xl font-extrabold text-gray-900 mb-20">
             Leave a Comment
@@ -102,7 +98,6 @@ export default function Comments() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <div className="bg-gray-50 p-10 grid grid-cols-1 gap-8">
-              {/* Name */}
               <div className="flex flex-col">
                 <label className="text-gray-500 text-lg font-medium mb-2">
                   Name <span>*</span>
@@ -121,7 +116,6 @@ export default function Comments() {
                 )}
               </div>
 
-              {/* Email */}
               <div className="flex flex-col">
                 <label className="text-gray-500 text-lg font-medium mb-2">
                   Email <span>*</span>
@@ -147,7 +141,6 @@ export default function Comments() {
                 )}
               </div>
 
-              {/* Website */}
               <div className="flex flex-col">
                 <label className="text-gray-500 text-lg font-medium mb-2">
                   Website
@@ -159,7 +152,6 @@ export default function Comments() {
                 />
               </div>
 
-              {/* Message */}
               <div className="flex flex-col">
                 <label className="text-gray-500 text-lg font-medium mb-2">
                   Message
@@ -180,7 +172,6 @@ export default function Comments() {
                 )}
               </div>
 
-              {/* Submit Button */}
               <div className="flex">
                 <button
                   type="submit"

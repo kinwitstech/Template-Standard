@@ -33,7 +33,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top info bar: hidden on mobile */}
       <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/10 text-white/40">
         <div className="container mx-auto py-2 grid grid-cols-3 items-center">
           <div className="flex items-center justify-start space-x-2">
@@ -51,7 +50,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main navbar */}
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
@@ -64,13 +62,11 @@ const Navbar = () => {
             scrolled ? "py-3 md:py-0" : "py-4 md:pb-2"
           }`}
         >
-          {/* ✅ Full-width border only when not scrolled */}
           {!scrolled && (
             <div className="absolute bottom-0 left-0 w-full border-b border-primary/30" />
           )}
 
           <div className="container px-5 md:px-15 flex justify-between items-center relative z-10">
-            {/* Logo */}
             <Link
               to="/"
               className={`text-2xl font-extrabold transition-colors duration-500 ${
@@ -80,7 +76,6 @@ const Navbar = () => {
               Feliciano
             </Link>
 
-            {/* Desktop nav: hidden on mobile */}
             <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
@@ -107,7 +102,6 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {/* Mobile menu toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`lg:hidden flex items-center space-x-2 transition-colors duration-300 ${
@@ -126,7 +120,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile nav: slides from right */}
         <div
           className={`fixed top-0 right-0 h-full w-72 z-40 transform transition-transform duration-300 ease-in-out lg:hidden ${
             isOpen ? "translate-x-0" : "translate-x-full"
